@@ -90,9 +90,10 @@
     }
     .logo-img{
       height:52px;
-      width:auto;
+      width:52px;
       display:block;
-      object-fit:contain;
+      object-fit:cover;
+      border-radius:50%;
     }
     .logo span{
       font-size:.68rem;
@@ -650,9 +651,10 @@
     }
     .footer-brand img{
       height:44px;
-      width:auto;
+      width:44px;
       display:block;
-      object-fit:contain;
+      object-fit:cover;
+      border-radius:50%;
     }
     .footer-credit{
       font-size:.78rem;
@@ -1129,15 +1131,17 @@
       const mm = gsap.matchMedia();
       mm.add('(min-width: 901px)', () => {
         const panels = gsap.utils.toArray('.panel');
-        gsap.to('.h-track', {
-          xPercent: -100 * (panels.length - 1),
+        const track = document.querySelector('.h-track');
+        gsap.to(track, {
+          x: () => -(track.scrollWidth - window.innerWidth),
           ease:'none',
           scrollTrigger:{
             trigger:'.h-gallery',
             pin:true,
             scrub:1,
-            snap:1 / (panels.length - 1),
-            end:() => '+=' + (window.innerWidth * (panels.length - 1))
+            snap: 1 / (panels.length - 1),
+            end: () => '+=' + (track.scrollWidth - window.innerWidth),
+            invalidateOnRefresh: true
           }
         });
       });
