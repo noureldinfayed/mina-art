@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mina Art Wedding Planner | Alexandria, Egypt</title>
   <meta name="description" content="Mina Art Wedding Planner in Alexandria, Egypt — luxury wedding décor, church styling, halls, photography, video, bridal cars and unforgettable celebrations." />
+  <link rel="icon" href="public/images/logo.jpg" type="image/jpeg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -19,7 +20,7 @@
       --rose:#c49484;
       --line:rgba(246,239,230,.12);
       --shadow:0 20px 60px rgba(0,0,0,.35);
-      --max:1240px;
+      --max:1800px;
       --radius:24px;
     }
 
@@ -84,16 +85,14 @@
     }
     .logo{
       display:flex;
-      flex-direction:column;
-      line-height:1;
-      gap:5px;
+      align-items:center;
       min-width:max-content;
     }
-    .logo strong{
-      font-family:"Cormorant Garamond",serif;
-      font-size:1.7rem;
-      letter-spacing:.18em;
-      font-weight:700;
+    .logo-img{
+      height:52px;
+      width:auto;
+      display:block;
+      object-fit:contain;
     }
     .logo span{
       font-size:.68rem;
@@ -447,7 +446,7 @@
     }
     .h-track{
       display:flex;
-      width:300vw;
+      width:800vw;
       height:100vh;
       will-change:transform;
     }
@@ -608,10 +607,35 @@
       margin-top:34px;
     }
 
+    .social-links{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+    .social-links a{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:36px;height:36px;
+      border:1px solid rgba(246,239,230,.18);
+      border-radius:50%;
+      color:var(--ivory-soft);
+      transition:.25s ease;
+    }
+    .social-links a:hover{
+      border-color:var(--gold);
+      color:var(--gold);
+      background:rgba(212,176,122,.08);
+    }
+    .social-links svg{
+      width:16px;height:16px;
+      fill:currentColor;
+    }
+
     footer{
       border-top:1px solid rgba(255,255,255,.06);
       background:#0d0906;
-      padding:28px 0;
+      padding:36px 0;
     }
     .footer-inner{
       width:min(var(--max), calc(100% - 40px));
@@ -619,21 +643,42 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:18px;
+      gap:24px;
+      flex-wrap:wrap;
       color:var(--ivory-soft);
       font-size:.88rem;
     }
-    .footer-brand{
-      font-family:"Cormorant Garamond",serif;
-      letter-spacing:.18em;
-      font-size:1.15rem;
-      color:var(--ivory);
+    .footer-brand img{
+      height:44px;
+      width:auto;
+      display:block;
+      object-fit:contain;
+    }
+    .footer-credit{
+      font-size:.78rem;
+      color:rgba(246,239,230,.45);
+      text-align:center;
+    }
+    .footer-credit a{
+      color:var(--gold);
+      transition:.2s ease;
+    }
+    .footer-credit a:hover{
+      color:var(--gold-deep);
     }
 
     .reveal{opacity:0;transform:translateY(28px)}
+    .hero-inner .hero-location,
+    .hero-inner .brand,
+    .hero-inner .brand-sub,
+    .hero-inner .hero-title,
+    .hero-inner .hero-copy,
+    .hero-inner .hero-actions,
+    .scroll-cue{opacity:0}
 
     @media (max-width: 900px){
       .nav-links,.nav-cta{display:none}
+      .nav > .social-links{display:none}
       .menu-toggle{display:flex}
       .hero-inner{padding-top:94px}
       .brand{font-size:clamp(3.5rem,18vw,6rem);letter-spacing:.12em}
@@ -679,8 +724,7 @@
   <header class="site-header">
     <div class="nav">
       <a href="#home" class="logo" aria-label="Mina Art Wedding Planner">
-        <strong>MINA ART</strong>
-        <span>Wedding Planner</span>
+        <img src="public/images/logo.jpg" alt="Mina Art Wedding Planner" class="logo-img" />
       </a>
 
       <nav class="nav-links">
@@ -688,8 +732,20 @@
         <a href="#gallery">Gallery</a>
         <a href="#reviews">Reviews</a>
         <a href="#contact">Contact</a>
-        <a href="https://wa.me/201287287240" target="_blank" class="nav-cta">WhatsApp</a>
       </nav>
+
+      <div class="social-links">
+        <a href="https://www.facebook.com/p/Mina-Art-Wedding-Planner-100064936320052/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/mina_art_wedding_planner" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://maps.app.goo.gl/HEdgxpiDbQhvBqzG9" target="_blank" rel="noopener" aria-label="Find us on Google Maps">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        </a>
+        <a href="https://wa.me/201287287240" target="_blank" rel="noopener" class="nav-cta">WhatsApp</a>
+      </div>
 
       <button class="menu-toggle" aria-label="Open menu">
         <span></span>
@@ -702,7 +758,18 @@
     <a href="#gallery">Gallery</a>
     <a href="#reviews">Reviews</a>
     <a href="#contact">Contact</a>
-    <a href="https://wa.me/201287287240" target="_blank">WhatsApp</a>
+    <a href="https://wa.me/201287287240" target="_blank" rel="noopener">WhatsApp</a>
+    <div class="social-links" style="justify-content:center;margin-top:12px;">
+      <a href="https://www.facebook.com/p/Mina-Art-Wedding-Planner-100064936320052/" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/mina_art_wedding_planner" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+      <a href="https://maps.app.goo.gl/HEdgxpiDbQhvBqzG9" target="_blank" rel="noopener" aria-label="Google Maps">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      </a>
+    </div>
   </div>
 
   <main>
@@ -716,13 +783,13 @@
       </div>
 
       <div class="hero-inner">
-        <p class="hero-location reveal">Alexandria, Egypt</p>
-        <h1 class="brand reveal">MINA ART</h1>
-        <p class="brand-sub reveal">كروت أفراح • ديكور كنائس وقاعات • تصوير فيديو وفوتو • سيارات زفاف</p>
-        <h2 class="hero-title reveal">Luxury wedding styling that feels cinematic from the very first step.</h2>
-        <p class="hero-copy reveal">Church décor, hall design, photography, video, bridal cars and atmosphere—crafted as one premium Mina Art experience for unforgettable celebrations.</p>
-        <div class="hero-actions reveal">
-          <a class="btn btn-primary" href="https://wa.me/201287287240" target="_blank">Book on WhatsApp</a>
+        <p class="hero-location">Alexandria, Egypt</p>
+        <h1 class="brand">MINA ART</h1>
+        <p class="brand-sub">كروت أفراح • ديكور كنائس وقاعات • تصوير فيديو وفوتو • سيارات زفاف</p>
+        <h2 class="hero-title">Luxury wedding styling that feels cinematic from the very first step.</h2>
+        <p class="hero-copy">Church décor, hall design, photography, video, bridal cars and atmosphere—crafted as one premium Mina Art experience for unforgettable celebrations.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://wa.me/201287287240" target="_blank" rel="noopener">Book on WhatsApp</a>
           <a class="btn btn-secondary" href="#gallery">See Signature Work</a>
         </div>
       </div>
@@ -796,7 +863,15 @@
 
     <section class="h-gallery" id="gallery">
       <div class="h-track">
-        <article class="panel" style="background-image:url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1800&q=80');">
+        <article class="panel" style="background-image:url('public/images/gallary.jpg');">
+          <div class="panel-content">
+            <span>Signature work</span>
+            <h3>Every detail crafted to feel cinematic and unforgettable.</h3>
+            <p>The Mina Art signature: atmosphere first, emotion second, and an entrance that feels worth remembering.</p>
+          </div>
+        </article>
+
+        <article class="panel" style="background-image:url('public/images/gallary1.png');">
           <div class="panel-content">
             <span>Church décor</span>
             <h3>White florals stretching the full aisle with a regal calm.</h3>
@@ -804,7 +879,7 @@
           </div>
         </article>
 
-        <article class="panel" style="background-image:url('https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1800&q=80');">
+        <article class="panel" style="background-image:url('public/images/gallary2.jpg');">
           <div class="panel-content">
             <span>Reception styling</span>
             <h3>The room changes mood the second guests walk in.</h3>
@@ -812,7 +887,39 @@
           </div>
         </article>
 
-        <article class="panel" style="background-image:url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=80');">
+        <article class="panel" style="background-image:url('public/images/gallary4.jpg');">
+          <div class="panel-content">
+            <span>Floral design</span>
+            <h3>Florals chosen to complement the mood of every moment.</h3>
+            <p>From altar arrangements to centrepieces — each bloom placed to elevate the overall visual story.</p>
+          </div>
+        </article>
+
+        <article class="panel" style="background-image:url('public/images/gallary5.jpg');">
+          <div class="panel-content">
+            <span>Photography</span>
+            <h3>Frames that already feel like the highlight reel.</h3>
+            <p>Capturing honest emotion with a cinematic eye — images you will want to display for decades.</p>
+          </div>
+        </article>
+
+        <article class="panel" style="background-image:url('public/images/gallary6.jpg');">
+          <div class="panel-content">
+            <span>Hall design</span>
+            <h3>A space transformed into a world of its own.</h3>
+            <p>Complete hall styling that layers light, texture and colour into one coherent, breathtaking experience.</p>
+          </div>
+        </article>
+
+        <article class="panel" style="background-image:url('public/images/gallary7.jpg');">
+          <div class="panel-content">
+            <span>Bridal cars</span>
+            <h3>The grand arrival deserves a vehicle to match.</h3>
+            <p>Premium bridal car selection and styling, from the ribbon to the final send-off moment.</p>
+          </div>
+        </article>
+
+        <article class="panel" style="background-image:url('public/images/gallary8.jpg');">
           <div class="panel-content">
             <span>Wedding atmosphere</span>
             <h3>Every frame is built to feel like the highlight reel.</h3>
@@ -874,8 +981,24 @@
 
   <footer>
     <div class="footer-inner">
-      <div class="footer-brand">MINA ART</div>
-      <div>Wedding Planner • Alexandria, Egypt • Premium weddings with unforgettable atmosphere</div>
+      <div class="footer-brand">
+        <img src="public/images/logo.jpg" alt="Mina Art Wedding Planner" />
+      </div>
+      <div class="footer-credit">
+        Wedding Planner • Alexandria, Egypt<br>
+        <span style="margin-top:6px;display:inline-block;">Architected &amp; Engineered by <a href="https://www.fayedintelligence.com" target="_blank" rel="noopener">Fayed Intelligence</a></span>
+      </div>
+      <div class="social-links">
+        <a href="https://www.facebook.com/p/Mina-Art-Wedding-Planner-100064936320052/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/mina_art_wedding_planner" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://maps.app.goo.gl/HEdgxpiDbQhvBqzG9" target="_blank" rel="noopener" aria-label="Google Maps">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        </a>
+      </div>
     </div>
   </footer>
 
@@ -979,16 +1102,16 @@
     if (window.gsap) {
       gsap.registerPlugin(ScrollTrigger);
 
-      gsap.timeline()
-        .from('.hero-location', {opacity:0, y:18, duration:.65, ease:'power3.out'})
-        .from('.brand', {opacity:0, y:28, scale:.96, duration:1.05, ease:'power3.out'}, '-=.22')
-        .from('.brand-sub, .hero-title, .hero-copy, .hero-actions, .scroll-cue', {
-          opacity:0,
-          y:26,
-          stagger:.1,
-          duration:.75,
-          ease:'power3.out'
-        }, '-=.55');
+      gsap.set(['.hero-location', '.brand', '.brand-sub', '.hero-title', '.hero-copy', '.hero-actions', '.scroll-cue'], {opacity:0, y:26});
+
+      gsap.timeline({delay:.15})
+        .to('.hero-location', {opacity:1, y:0, duration:.8, ease:'power3.out'})
+        .to('.brand', {opacity:1, y:0, duration:1.1, ease:'power3.out'}, '-=.3')
+        .to('.brand-sub', {opacity:1, y:0, duration:.8, ease:'power3.out'}, '-=.5')
+        .to('.hero-title', {opacity:1, y:0, duration:.85, ease:'power3.out'}, '-=.45')
+        .to('.hero-copy', {opacity:1, y:0, duration:.8, ease:'power3.out'}, '-=.45')
+        .to('.hero-actions', {opacity:1, y:0, duration:.75, ease:'power3.out'}, '-=.4')
+        .to('.scroll-cue', {opacity:1, y:0, duration:.65, ease:'power3.out'}, '-=.3');
 
       gsap.utils.toArray('.reveal').forEach(el => {
         gsap.to(el, {
