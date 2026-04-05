@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mina Art Wedding Planner | Alexandria, Egypt</title>
+  <meta name="description" content="Mina Art Wedding Planner in Alexandria, Egypt — luxury wedding décor, church styling, halls, photography, video, bridal cars and unforgettable celebrations." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f0c09;
+      --bg-2:#17110c;
+      --ivory:#f6efe6;
+      --ivory-soft:rgba(246,239,230,.74);
+      --gold:#d4b07a;
+      --gold-deep:#a77f49;
+      --rose:#c49484;
+      --line:rgba(246,239,230,.12);
+      --shadow:0 20px 60px rgba(0,0,0,.35);
+      --max:1240px;
+      --radius:24px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:"Manrope",sans-serif;
+      color:var(--ivory);
+      background:
+        radial-gradient(circle at top, rgba(212,176,122,.12), transparent 30%),
+        radial-gradient(circle at 85% 20%, rgba(196,148,132,.10), transparent 24%),
+        linear-gradient(180deg, #110d09 0%, #0f0c09 40%, #17110c 100%);
+      overflow-x:hidden;
+    }
+
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    button,input,textarea{font:inherit}
+    .container{width:min(var(--max), calc(100% - 40px));margin:0 auto}
+    .section{padding:110px 0;position:relative}
+    .eyebrow{
+      display:inline-block;
+      text-transform:uppercase;
+      letter-spacing:.28em;
+      font-size:.72rem;
+      color:var(--gold);
+      margin-bottom:18px;
+    }
+    .section-title{
+      font-family:"Cormorant Garamond",serif;
+      font-size:clamp(2.6rem,5vw,5rem);
+      line-height:.92;
+      max-width:12ch;
+    }
+    .section-copy{
+      margin-top:16px;
+      max-width:58ch;
+      color:var(--ivory-soft);
+      line-height:1.8;
+      font-size:1rem;
+    }
+
+    .site-header{
+      position:fixed;
+      inset:0 0 auto 0;
+      z-index:50;
+      transition:.35s ease;
+    }
+    .site-header.scrolled{
+      background:rgba(12,9,7,.68);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav{
+      width:min(var(--max), calc(100% - 28px));
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:18px 0;
+      gap:18px;
+    }
+    .logo{
+      display:flex;
+      flex-direction:column;
+      line-height:1;
+      gap:5px;
+      min-width:max-content;
+    }
+    .logo strong{
+      font-family:"Cormorant Garamond",serif;
+      font-size:1.7rem;
+      letter-spacing:.18em;
+      font-weight:700;
+    }
+    .logo span{
+      font-size:.68rem;
+      letter-spacing:.2em;
+      text-transform:uppercase;
+      color:var(--ivory-soft);
+    }
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:28px;
+      font-size:.84rem;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+    }
+    .nav-links a{
+      color:rgba(246,239,230,.84);
+      transition:.25s ease;
+    }
+    .nav-links a:hover{color:var(--gold)}
+    .nav-cta{
+      padding:12px 18px;
+      border:1px solid rgba(212,176,122,.35);
+      color:var(--ivory);
+      transition:.25s ease;
+    }
+    .nav-cta:hover{
+      background:rgba(212,176,122,.12);
+      border-color:rgba(212,176,122,.7);
+    }
+    .menu-toggle{
+      display:none;
+      width:48px;height:48px;
+      border:none;background:transparent;color:var(--ivory);
+      align-items:center;justify-content:center;cursor:pointer;
+    }
+    .menu-toggle span,.menu-toggle span:before,.menu-toggle span:after{
+      display:block;position:relative;width:20px;height:1.5px;background:var(--ivory);transition:.3s ease;
+    }
+    .menu-toggle span:before,.menu-toggle span:after{content:"";position:absolute;left:0}
+    .menu-toggle span:before{top:-6px}
+    .menu-toggle span:after{top:6px}
+    .mobile-menu{
+      position:fixed;
+      inset:0;
+      background:rgba(10,8,6,.95);
+      backdrop-filter:blur(16px);
+      z-index:49;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      gap:26px;
+      transform:translateY(-100%);
+      opacity:0;
+      pointer-events:none;
+      transition:.35s ease;
+    }
+    .mobile-menu.open{
+      transform:translateY(0);
+      opacity:1;
+      pointer-events:auto;
+    }
+    .mobile-menu a{
+      font-size:1rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+
+    .hero{
+      min-height:100svh;
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      isolation:isolate;
+      --spot-x:50%;
+      --spot-y:35%;
+    }
+    .hero:before{
+      content:"";
+      position:absolute;
+      inset:-8%;
+      z-index:2;
+      background:
+        radial-gradient(circle at var(--spot-x) var(--spot-y), rgba(255,255,255,.18), transparent 18%),
+        radial-gradient(circle at 80% 18%, rgba(212,176,122,.20), transparent 22%),
+        linear-gradient(180deg, rgba(12,9,7,.30), rgba(12,9,7,.55) 48%, rgba(12,9,7,.82) 100%);
+      pointer-events:none;
+    }
+    .hero-media,.hero-slide,#dustCanvas{
+      position:absolute;
+      inset:0;
+    }
+    .hero-media{z-index:0}
+    .hero-slide{
+      background-size:cover;
+      background-position:center center;
+      opacity:0;
+      transform:scale(1.08);
+      transition:opacity 1.2s ease, transform 8s ease;
+      filter:saturate(.9) contrast(1.02) brightness(.78);
+    }
+    .hero-slide.active{
+      opacity:1;
+      transform:scale(1);
+    }
+    #dustCanvas{z-index:1;opacity:.75}
+    .hero-noise{
+      position:absolute;
+      inset:0;
+      z-index:1;
+      opacity:.08;
+      background-image:
+        radial-gradient(circle at 25% 20%, rgba(255,255,255,.35) 0 1px, transparent 1.4px),
+        radial-gradient(circle at 80% 40%, rgba(255,255,255,.22) 0 1px, transparent 1.4px),
+        radial-gradient(circle at 50% 80%, rgba(255,255,255,.18) 0 1px, transparent 1.6px);
+      background-size:180px 180px, 240px 240px, 200px 200px;
+      mix-blend-mode:screen;
+    }
+
+    .hero-inner{
+      position:relative;
+      z-index:4;
+      width:min(1000px, calc(100% - 36px));
+      text-align:center;
+      padding-top:88px;
+    }
+    .hero-location{
+      letter-spacing:.32em;
+      text-transform:uppercase;
+      font-size:.78rem;
+      color:rgba(246,239,230,.85);
+      margin-bottom:18px;
+    }
+    .brand{
+      font-family:"Cormorant Garamond",serif;
+      font-size:clamp(4.3rem,14vw,10.5rem);
+      line-height:.82;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      font-weight:700;
+      text-shadow:0 10px 50px rgba(0,0,0,.35);
+    }
+    .brand-sub{
+      margin-top:10px;
+      font-family:"Cairo",sans-serif;
+      font-size:clamp(.96rem,1.8vw,1.12rem);
+      color:rgba(246,239,230,.88);
+      direction:rtl;
+    }
+    .hero-title{
+      margin:26px auto 0;
+      max-width:15ch;
+      font-family:"Cormorant Garamond",serif;
+      font-size:clamp(2rem,4.2vw,4.3rem);
+      line-height:.95;
+      font-weight:600;
+    }
+    .hero-copy{
+      margin:18px auto 0;
+      max-width:54ch;
+      color:rgba(246,239,230,.84);
+      line-height:1.85;
+      font-size:1rem;
+    }
+    .hero-actions{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:34px;
+    }
+    .btn{
+      position:relative;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:54px;
+      padding:0 22px;
+      border:1px solid transparent;
+      overflow:hidden;
+      transition:.3s ease;
+      cursor:pointer;
+    }
+    .btn-primary{
+      background:linear-gradient(135deg, var(--gold) 0%, #f0d2a1 100%);
+      color:#1a130c;
+      font-weight:800;
+      box-shadow:0 14px 34px rgba(212,176,122,.18);
+    }
+    .btn-primary:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      transform:translateX(-120%);
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.45), transparent);
+      transition:transform .8s ease;
+    }
+    .btn-primary:hover:before{transform:translateX(120%)}
+    .btn-primary:hover{transform:translateY(-2px)}
+    .btn-secondary{
+      border-color:rgba(246,239,230,.24);
+      color:var(--ivory);
+      background:rgba(255,255,255,.03);
+      backdrop-filter:blur(8px);
+    }
+    .btn-secondary:hover{
+      border-color:rgba(212,176,122,.55);
+      background:rgba(212,176,122,.08);
+    }
+    .scroll-cue{
+      position:absolute;
+      z-index:4;
+      left:50%;
+      bottom:28px;
+      transform:translateX(-50%);
+      font-size:.72rem;
+      letter-spacing:.3em;
+      text-transform:uppercase;
+      color:rgba(246,239,230,.7);
+    }
+    .scroll-cue:after{
+      content:"";
+      display:block;
+      width:1px;height:34px;
+      margin:10px auto 0;
+      background:linear-gradient(180deg, rgba(246,239,230,.6), transparent);
+      animation:scrollLine 1.8s ease-in-out infinite;
+    }
+    @keyframes scrollLine{
+      0%,100%{transform:scaleY(.45);transform-origin:top}
+      50%{transform:scaleY(1);transform-origin:top}
+    }
+
+    .services{
+      background:
+        radial-gradient(circle at 15% 10%, rgba(212,176,122,.07), transparent 18%),
+        linear-gradient(180deg, rgba(255,255,255,.02), transparent 35%);
+    }
+    .services-intro{width:min(var(--max), calc(100% - 40px));margin:0 auto}
+    .services-grid{
+      width:min(var(--max), calc(100% - 40px));
+      margin:46px auto 0;
+      display:grid;
+      grid-template-columns:1.12fr .88fr;
+      gap:36px;
+      align-items:start;
+    }
+    .service-preview{
+      position:sticky;
+      top:110px;
+      height:min(74vh, 760px);
+      overflow:hidden;
+      background:#120e0b;
+      box-shadow:var(--shadow);
+    }
+    .service-image{
+      position:absolute;
+      inset:0;
+      background-size:cover;
+      background-position:center;
+      opacity:0;
+      transform:scale(1.04);
+      transition:opacity .5s ease, transform 1.2s ease;
+      filter:brightness(.82) saturate(.95);
+    }
+    .service-image:after{
+      content:"";
+      position:absolute;inset:0;
+      background:linear-gradient(180deg, rgba(15,12,9,.12), rgba(15,12,9,.48) 60%, rgba(15,12,9,.78));
+    }
+    .service-image.active{
+      opacity:1;
+      transform:scale(1);
+    }
+    .service-caption{
+      position:absolute;
+      left:24px;
+      bottom:22px;
+      z-index:2;
+    }
+    .service-caption span{
+      display:block;
+      color:var(--gold);
+      text-transform:uppercase;
+      letter-spacing:.26em;
+      font-size:.7rem;
+      margin-bottom:8px;
+    }
+    .service-caption strong{
+      font-family:"Cormorant Garamond",serif;
+      font-size:2.3rem;
+      line-height:.92;
+      max-width:10ch;
+      display:block;
+    }
+    .service-list{
+      border-top:1px solid var(--line);
+    }
+    .service-row{
+      width:100%;
+      display:grid;
+      grid-template-columns:64px 1fr;
+      gap:18px;
+      align-items:flex-start;
+      padding:28px 0;
+      background:none;
+      border:none;
+      border-bottom:1px solid var(--line);
+      text-align:left;
+      color:inherit;
+      cursor:pointer;
+      transition:.28s ease;
+    }
+    .service-row:hover,.service-row.active{color:#fff}
+    .service-row:hover .service-name,.service-row.active .service-name{color:var(--gold)}
+    .service-index{
+      font-family:"Cormorant Garamond",serif;
+      font-size:2rem;
+      color:rgba(246,239,230,.42);
+      line-height:1;
+    }
+    .service-name{
+      display:block;
+      font-family:"Cormorant Garamond",serif;
+      font-size:2rem;
+      margin-bottom:8px;
+      transition:.28s ease;
+    }
+    .service-text{
+      color:var(--ivory-soft);
+      line-height:1.8;
+      display:block;
+      max-width:52ch;
+    }
+
+    .gallery-intro{
+      padding:110px 0 50px;
+      background:linear-gradient(180deg, transparent 0%, rgba(255,255,255,.02) 100%);
+    }
+    .gallery-intro .container{text-align:center}
+    .gallery-intro .section-title{max-width:11ch;margin:0 auto}
+    .gallery-intro .section-copy{margin-inline:auto}
+    .h-gallery{
+      position:relative;
+      overflow:hidden;
+      background:#0d0906;
+    }
+    .h-track{
+      display:flex;
+      width:300vw;
+      height:100vh;
+      will-change:transform;
+    }
+    .panel{
+      position:relative;
+      width:100vw;
+      height:100vh;
+      overflow:hidden;
+      display:flex;
+      align-items:flex-end;
+      padding:40px;
+      background-size:cover;
+      background-position:center;
+    }
+    .panel:before{
+      content:"";
+      position:absolute;inset:0;
+      background:
+        linear-gradient(180deg, rgba(10,7,5,.08), rgba(10,7,5,.16) 36%, rgba(10,7,5,.76) 100%),
+        radial-gradient(circle at 75% 20%, rgba(212,176,122,.12), transparent 24%);
+    }
+    .panel-content{
+      position:relative;
+      z-index:2;
+      max-width:620px;
+    }
+    .panel-content span{
+      display:inline-block;
+      text-transform:uppercase;
+      letter-spacing:.28em;
+      font-size:.72rem;
+      color:var(--gold);
+      margin-bottom:16px;
+    }
+    .panel-content h3{
+      font-family:"Cormorant Garamond",serif;
+      font-size:clamp(2.6rem,5vw,5rem);
+      line-height:.92;
+      margin-bottom:12px;
+    }
+    .panel-content p{
+      color:rgba(246,239,230,.84);
+      line-height:1.8;
+      max-width:56ch;
+    }
+
+    .testimonials{
+      background:
+        radial-gradient(circle at 20% 20%, rgba(196,148,132,.08), transparent 18%),
+        linear-gradient(180deg, #120d0a 0%, #16100b 100%);
+      overflow:hidden;
+    }
+    .testimonials .container{text-align:center}
+    .quotes{
+      position:relative;
+      min-height:220px;
+      margin-top:46px;
+    }
+    .quote{
+      position:absolute;
+      inset:0;
+      opacity:0;
+      transform:translateY(20px);
+      transition:.45s ease;
+      padding:0 18px;
+    }
+    .quote.active{
+      opacity:1;
+      transform:translateY(0);
+    }
+    .quote p{
+      font-family:"Cormorant Garamond",serif;
+      font-size:clamp(2rem,4vw,4.2rem);
+      line-height:1;
+      max-width:16ch;
+      margin:0 auto 18px;
+    }
+    .quote span{
+      display:block;
+      color:var(--ivory-soft);
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-size:.78rem;
+    }
+    .quote-dots{
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      margin-top:8px;
+    }
+    .quote-dot{
+      width:10px;height:10px;border-radius:50%;
+      border:1px solid rgba(246,239,230,.32);
+      background:transparent;
+      cursor:pointer;
+      transition:.25s ease;
+    }
+    .quote-dot.active{
+      background:var(--gold);
+      border-color:var(--gold);
+      transform:scale(1.15);
+    }
+
+    .contact{
+      position:relative;
+      min-height:88svh;
+      display:flex;
+      align-items:center;
+      overflow:hidden;
+    }
+    .contact-media,.contact-overlay{
+      position:absolute;inset:0;
+    }
+    .contact-media{
+      background:
+        url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;
+      transform:scale(1.03);
+      filter:brightness(.65) saturate(.95);
+    }
+    .contact-overlay{
+      background:
+        linear-gradient(90deg, rgba(12,9,7,.86) 0%, rgba(12,9,7,.58) 42%, rgba(12,9,7,.78) 100%),
+        radial-gradient(circle at 20% 30%, rgba(212,176,122,.14), transparent 22%);
+    }
+    .contact-inner{
+      position:relative;
+      z-index:2;
+      width:min(var(--max), calc(100% - 40px));
+      margin:0 auto;
+      padding:120px 0;
+    }
+    .contact-title{
+      font-family:"Cormorant Garamond",serif;
+      font-size:clamp(2.8rem,5vw,5.4rem);
+      line-height:.92;
+      max-width:11ch;
+    }
+    .contact-copy{
+      margin-top:18px;
+      max-width:58ch;
+      color:rgba(246,239,230,.86);
+      line-height:1.9;
+    }
+    .contact-lines{
+      margin-top:28px;
+      display:grid;
+      gap:12px;
+      font-size:1rem;
+    }
+    .contact-lines a,.contact-lines p{
+      color:var(--ivory);
+    }
+    .contact-lines a:hover{color:var(--gold)}
+    .contact-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:34px;
+    }
+
+    footer{
+      border-top:1px solid rgba(255,255,255,.06);
+      background:#0d0906;
+      padding:28px 0;
+    }
+    .footer-inner{
+      width:min(var(--max), calc(100% - 40px));
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      color:var(--ivory-soft);
+      font-size:.88rem;
+    }
+    .footer-brand{
+      font-family:"Cormorant Garamond",serif;
+      letter-spacing:.18em;
+      font-size:1.15rem;
+      color:var(--ivory);
+    }
+
+    .reveal{opacity:0;transform:translateY(28px)}
+
+    @media (max-width: 900px){
+      .nav-links,.nav-cta{display:none}
+      .menu-toggle{display:flex}
+      .hero-inner{padding-top:94px}
+      .brand{font-size:clamp(3.5rem,18vw,6rem);letter-spacing:.12em}
+      .hero-title{max-width:11ch}
+      .services-grid{grid-template-columns:1fr}
+      .service-preview{
+        position:relative;
+        top:auto;
+        height:52vh;
+      }
+      .gallery-intro{padding-bottom:24px}
+      .h-track{
+        width:100%;
+        height:auto;
+        flex-direction:column;
+      }
+      .panel{
+        width:100%;
+        height:82svh;
+        padding:28px 22px;
+      }
+      .contact{min-height:auto}
+      .footer-inner{flex-direction:column;text-align:center}
+    }
+
+    @media (max-width: 640px){
+      .section{padding:88px 0}
+      .hero-copy,.section-copy,.contact-copy,.service-text{font-size:.95rem;line-height:1.75}
+      .service-row{grid-template-columns:48px 1fr;padding:22px 0}
+      .service-name{font-size:1.75rem}
+      .panel-content h3{font-size:2.55rem}
+      .quote p{font-size:2.35rem}
+      .btn{width:100%}
+      .hero-actions,.contact-actions{flex-direction:column}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav">
+      <a href="#home" class="logo" aria-label="Mina Art Wedding Planner">
+        <strong>MINA ART</strong>
+        <span>Wedding Planner</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+        <a href="https://wa.me/201287287240" target="_blank" class="nav-cta">WhatsApp</a>
+      </nav>
+
+      <button class="menu-toggle" aria-label="Open menu">
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+    <a href="https://wa.me/201287287240" target="_blank">WhatsApp</a>
+  </div>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-media">
+        <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1800&q=80');"></div>
+        <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1800&q=80');"></div>
+        <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=80');"></div>
+        <canvas id="dustCanvas"></canvas>
+        <div class="hero-noise"></div>
+      </div>
+
+      <div class="hero-inner">
+        <p class="hero-location reveal">Alexandria, Egypt</p>
+        <h1 class="brand reveal">MINA ART</h1>
+        <p class="brand-sub reveal">كروت أفراح • ديكور كنائس وقاعات • تصوير فيديو وفوتو • سيارات زفاف</p>
+        <h2 class="hero-title reveal">Luxury wedding styling that feels cinematic from the very first step.</h2>
+        <p class="hero-copy reveal">Church décor, hall design, photography, video, bridal cars and atmosphere—crafted as one premium Mina Art experience for unforgettable celebrations.</p>
+        <div class="hero-actions reveal">
+          <a class="btn btn-primary" href="https://wa.me/201287287240" target="_blank">Book on WhatsApp</a>
+          <a class="btn btn-secondary" href="#gallery">See Signature Work</a>
+        </div>
+      </div>
+
+      <a class="scroll-cue" href="#services">Scroll</a>
+    </section>
+
+    <section class="services section" id="services">
+      <div class="services-intro reveal">
+        <span class="eyebrow">Signature services</span>
+        <h2 class="section-title">Everything styled under one elegant Mina Art vision.</h2>
+        <p class="section-copy">No disconnected vendors. Just one team shaping the mood, the florals, the imagery and the grand arrival—so the whole celebration feels premium, coherent and unforgettable.</p>
+      </div>
+
+      <div class="services-grid reveal">
+        <div class="service-preview">
+          <div class="service-image active" data-image="0" style="background-image:url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1400&q=80');">
+            <div class="service-caption"><span>01</span><strong>Church décor</strong></div>
+          </div>
+          <div class="service-image" data-image="1" style="background-image:url('https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1400&q=80');">
+            <div class="service-caption"><span>02</span><strong>Reception halls</strong></div>
+          </div>
+          <div class="service-image" data-image="2" style="background-image:url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1400&q=80');">
+            <div class="service-caption"><span>03</span><strong>Photo & video</strong></div>
+          </div>
+          <div class="service-image" data-image="3" style="background-image:url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=80');">
+            <div class="service-caption"><span>04</span><strong>Bridal cars</strong></div>
+          </div>
+        </div>
+
+        <div class="service-list">
+          <button class="service-row active" data-service="0">
+            <span class="service-index">01</span>
+            <span>
+              <span class="service-name">Church décor</span>
+              <span class="service-text">Royal-white floral aisles, elegant altar styling and the kind of first impression guests remember before the ceremony even starts.</span>
+            </span>
+          </button>
+          <button class="service-row" data-service="1">
+            <span class="service-index">02</span>
+            <span>
+              <span class="service-name">Reception hall styling</span>
+              <span class="service-text">Tablescapes, floral layers, lighting mood and full visual direction that makes the room feel elevated, warm and luxurious.</span>
+            </span>
+          </button>
+          <button class="service-row" data-service="2">
+            <span class="service-index">03</span>
+            <span>
+              <span class="service-name">Photography & video</span>
+              <span class="service-text">The emotion, the entrances, the details and the atmosphere—captured with a polished look worthy of the day.</span>
+            </span>
+          </button>
+          <button class="service-row" data-service="3">
+            <span class="service-index">04</span>
+            <span>
+              <span class="service-name">Bridal cars & arrival</span>
+              <span class="service-text">A strong wedding entrance starts before the door opens—stylish transport that completes the full Mina Art experience.</span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery-intro">
+      <div class="container reveal">
+        <span class="eyebrow">Selected work</span>
+        <h2 class="section-title">From royal-white aisles to dramatic reception reveals.</h2>
+        <p class="section-copy">This is where the Mina Art signature becomes clear: atmosphere first, emotion second, and an entrance that instantly feels worth remembering.</p>
+      </div>
+    </section>
+
+    <section class="h-gallery" id="gallery">
+      <div class="h-track">
+        <article class="panel" style="background-image:url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1800&q=80');">
+          <div class="panel-content">
+            <span>Church décor</span>
+            <h3>White florals stretching the full aisle with a regal calm.</h3>
+            <p>Elegant symmetry, soft light and a ceremony path designed to feel sacred, elevated and cinematic.</p>
+          </div>
+        </article>
+
+        <article class="panel" style="background-image:url('https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1800&q=80');">
+          <div class="panel-content">
+            <span>Reception styling</span>
+            <h3>The room changes mood the second guests walk in.</h3>
+            <p>Layered décor, lighting depth and floral storytelling designed to turn a hall into a premium experience.</p>
+          </div>
+        </article>
+
+        <article class="panel" style="background-image:url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=80');">
+          <div class="panel-content">
+            <span>Wedding atmosphere</span>
+            <h3>Every frame is built to feel like the highlight reel.</h3>
+            <p>From the arrival to the portraits to the final celebration, Mina Art creates events that already look iconic in motion.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="testimonials section" id="reviews">
+      <div class="container reveal">
+        <span class="eyebrow">Words from clients</span>
+        <h2 class="section-title" style="max-width:12ch;margin:0 auto;">Professional. Recommended. Beautifully executed.</h2>
+
+        <div class="quotes" aria-live="polite">
+          <div class="quote active">
+            <p>“They are really professional.”</p>
+            <span>Nessma Sharabeya • Google review</span>
+          </div>
+          <div class="quote">
+            <p>“Best wedding planner ever. Most recommended.”</p>
+            <span>Rania Edward • Google review</span>
+          </div>
+          <div class="quote">
+            <p>“مكتب مينا ارت لتجهيزات الافراح... ديكور، تصوير، وسيارات زفاف.”</p>
+            <span>Mina Art services • Facebook presence</span>
+          </div>
+        </div>
+
+        <div class="quote-dots">
+          <button class="quote-dot active" aria-label="Show testimonial 1"></button>
+          <button class="quote-dot" aria-label="Show testimonial 2"></button>
+          <button class="quote-dot" aria-label="Show testimonial 3"></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="contact-media"></div>
+      <div class="contact-overlay"></div>
+      <div class="contact-inner reveal">
+        <span class="eyebrow">Reserve your date</span>
+        <h2 class="contact-title">Bring Mina Art to your wedding day in Alexandria.</h2>
+        <p class="contact-copy">From church décor and hall styling to coverage and bridal cars, Mina Art shapes the full atmosphere with one polished visual standard.</p>
+
+        <div class="contact-lines">
+          <a href="tel:+201287287240">Phone: +20 12 87287240</a>
+          <p>Address: 456 El Horya St., Roshdy, Alexandria, Egypt</p>
+          <p>Hours: Closes at 10 PM • Opens 2 PM Sunday</p>
+        </div>
+
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="https://wa.me/201287287240" target="_blank">Start WhatsApp Inquiry</a>
+          <a class="btn btn-secondary" href="tel:+201287287240">Call Mina Art</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">MINA ART</div>
+      <div>Wedding Planner • Alexandria, Egypt • Premium weddings with unforgettable atmosphere</div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    const header = document.querySelector('.site-header');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 24);
+    });
+
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+    mobileLinks.forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+    const hero = document.querySelector('.hero');
+    hero.addEventListener('pointermove', (e) => {
+      const rect = hero.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      hero.style.setProperty('--spot-x', x + '%');
+      hero.style.setProperty('--spot-y', y + '%');
+    });
+
+    const slides = document.querySelectorAll('.hero-slide');
+    let currentSlide = 0;
+    setInterval(() => {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }, 5200);
+
+    const serviceRows = document.querySelectorAll('.service-row');
+    const serviceImages = document.querySelectorAll('.service-image');
+    function setService(index){
+      serviceRows.forEach(row => row.classList.remove('active'));
+      serviceImages.forEach(img => img.classList.remove('active'));
+      serviceRows[index].classList.add('active');
+      serviceImages[index].classList.add('active');
+    }
+    serviceRows.forEach((row, index) => {
+      row.addEventListener('mouseenter', () => setService(index));
+      row.addEventListener('focus', () => setService(index));
+      row.addEventListener('click', () => setService(index));
+    });
+
+    const quotes = document.querySelectorAll('.quote');
+    const dots = document.querySelectorAll('.quote-dot');
+    let currentQuote = 0;
+    function setQuote(index){
+      quotes.forEach(q => q.classList.remove('active'));
+      dots.forEach(d => d.classList.remove('active'));
+      quotes[index].classList.add('active');
+      dots[index].classList.add('active');
+      currentQuote = index;
+    }
+    dots.forEach((dot, index) => dot.addEventListener('click', () => setQuote(index)));
+    setInterval(() => setQuote((currentQuote + 1) % quotes.length), 4500);
+
+    const canvas = document.getElementById('dustCanvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    function resizeCanvas(){
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      particles = Array.from({length: Math.min(52, Math.floor(window.innerWidth / 24))}, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.8 + 0.5,
+        vx: (Math.random() - 0.5) * 0.15,
+        vy: -Math.random() * 0.35 - 0.05,
+        a: Math.random() * 0.65 + 0.15
+      }));
+    }
+    function animateDust(){
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        if(p.y < -10){ p.y = canvas.height + 10; p.x = Math.random() * canvas.width; }
+        if(p.x < -10) p.x = canvas.width + 10;
+        if(p.x > canvas.width + 10) p.x = -10;
+        ctx.beginPath();
+        ctx.fillStyle = `rgba(212,176,122,${p.a})`;
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = 'rgba(212,176,122,.35)';
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      requestAnimationFrame(animateDust);
+    }
+    resizeCanvas();
+    animateDust();
+    window.addEventListener('resize', resizeCanvas);
+
+    if (window.gsap) {
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.timeline()
+        .from('.hero-location', {opacity:0, y:18, duration:.65, ease:'power3.out'})
+        .from('.brand', {opacity:0, y:28, scale:.96, duration:1.05, ease:'power3.out'}, '-=.22')
+        .from('.brand-sub, .hero-title, .hero-copy, .hero-actions, .scroll-cue', {
+          opacity:0,
+          y:26,
+          stagger:.1,
+          duration:.75,
+          ease:'power3.out'
+        }, '-=.55');
+
+      gsap.utils.toArray('.reveal').forEach(el => {
+        gsap.to(el, {
+          opacity:1,
+          y:0,
+          duration:.85,
+          ease:'power3.out',
+          scrollTrigger:{
+            trigger:el,
+            start:'top 82%'
+          }
+        });
+      });
+
+      const mm = gsap.matchMedia();
+      mm.add('(min-width: 901px)', () => {
+        const panels = gsap.utils.toArray('.panel');
+        gsap.to('.h-track', {
+          xPercent: -100 * (panels.length - 1),
+          ease:'none',
+          scrollTrigger:{
+            trigger:'.h-gallery',
+            pin:true,
+            scrub:1,
+            snap:1 / (panels.length - 1),
+            end:() => '+=' + (window.innerWidth * (panels.length - 1))
+          }
+        });
+      });
+    }
+  </script>
+</body>
+</html>
